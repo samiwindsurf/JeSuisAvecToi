@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Je suis avec toi | Précommande</title>
+<title>Je suis avec toi | Samuel Goy</title>
 
 <link relonts.googleapis.com
-<link rel="preconnect" href<link href="https://fonts.googleapis.com/css2?family300;400;500;600;700&display=swap
+<link rel="preconnect" href="https://fonts.://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&display=swap
 
 <style>
 
 :root{
-    --bg:#d6e1de;
-    --dark:#0d4c5a;
-    --accent:#efb29f;
-    --white:#ffffff;
-    --shadow:0 20px 60px rgba(0,0,0,.12);
+    --bg:#d8e2de;
+    --dark:#0b4655;
+    --accent:#ecb09d;
+    --light:#f7f7f5;
+    --text:#143943;
+    --shadow:0 20px 60px rgba(0,0,0,.15);
 }
 
 *{
@@ -33,228 +33,190 @@ html{
 body{
     font-family:'Inter',sans-serif;
     background:var(--bg);
-    color:var(--dark);
-    line-height:1.6;
+    color:var(--text);
+    overflow-x:hidden;
 }
 
-.container{
-    width:min(1200px,90%);
-    margin:auto;
-}
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:60px 0;
-}
-
-.hero-content{
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
-    align-items:center;
-}
-
-.cover{
-
-    width:100%;
-    max-width:520px;
-
-    border-radius:16px;
-
-    box-shadow:var(--shadow);
-
-    transition:transform .5s ease;
-}
-
-.cover:hover{
-    transform:translateY(-8px);
-}
-
-.album-label{
-
-    display:inline-block;
-
-    background:white;
-
-    padding:8px 16px;
-
-    border-radius:999px;
-
-    font-size:.9rem;
-
-    margin-bottom:20px;
-
-    box-shadow:0 2px 10px rgba(0,0,0,.05);
-}
-
-h1{
-
-    font-size:clamp(3rem,7vw,6rem);
-
-    line-height:.95;
-
-    margin-bottom:25px;
-}
-
-.subtitle{
-
-    font-size:1.25rem;
-
-    margin-bottom:20px;
-}
-
-.price{
-
-    font-size:2.7rem;
-
-    font-weight:700;
-
-    margin-bottom:6px;
-}
-
-.limited{
-
-    color:#456670;
-
-    margin-bottom:30px;
-}
-
-.features{
-
-    list-style:none;
-
-    margin-bottom:35px;
-}
-
-.features li{
-    margin-bottom:10px;
-}
-
-.cta{
-
-    display:inline-block;
-
-    background:var(--dark);
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:18px 42px;
-
-    border-radius:999px;
-
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.cta:hover{
-
-    background:var(--accent);
-
-    color:var(--dark);
-}
-
-.small-info{
-
-    margin-top:15px;
-
-    font-size:.9rem;
-
-    opacity:.8;
+img{
+    max-width:100%;
+    display:block;
 }
 
 section{
-    padding:110px 0;
+    padding:120px 8%;
 }
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:.8s;
+}
+
+.fade.visible{
+    opacity:1;
+    transform:none;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background:url("cover.jpg") center center;
+    background-size:cover;
+    transform:scale(1.1);
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(5,25,30,.45),
+    rgba(5,25,30,.65));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    max-width:900px;
+}
+
+.hero-label{
+    letter-spacing:4px;
+    text-transform:uppercase;
+    opacity:.85;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(4rem,10vw,8rem);
+    line-height:.9;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    max-width:620px;
+    margin-bottom:35px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:18px 36px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:#203038;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.5);
+    color:white;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.scroll-indicator{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    font-size:.9rem;
+    opacity:.8;
+}
+
+/* PRESENTATION */
 
 .section-title{
-
-    font-size:clamp(2rem,5vw,3rem);
-
-    margin-bottom:25px;
-
     text-align:center;
+    font-size:clamp(2.5rem,5vw,4rem);
+    margin-bottom:30px;
+    color:var(--dark);
 }
 
-.intro{
-
+.lead{
     max-width:800px;
-
     margin:auto;
-
     text-align:center;
-
-    font-size:1.1rem;
+    font-size:1.15rem;
+    line-height:1.9;
 }
+
+/* PHYSICAL */
 
 .physical{
-
-    background:rgba(255,255,255,.45);
+    background:rgba(255,255,255,.6);
 }
 
-.cards{
-
+.features{
     display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-
-    gap:25px;
-
-    margin-top:50px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:60px;
 }
 
-.card{
-
+.feature{
     background:white;
-
-    padding:30px;
-
-    border-radius:20px;
-
-    box-shadow:0 8px 30px rgba(0,0,0,.05);
-
-    text-align:center;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:var(--shadow);
 }
 
-.card h3{
+.feature h3{
     margin-bottom:10px;
+    color:var(--dark);
 }
 
-.tracklist-container{
+/* TRACKLIST */
 
-    max-width:700px;
-
+.track-wrapper{
+    max-width:850px;
     margin:auto;
 }
 
 .tracklist{
-
     background:white;
-
-    border-radius:25px;
-
-    padding:40px;
-
+    border-radius:30px;
+    overflow:hidden;
     box-shadow:var(--shadow);
 }
 
 .track{
-
     display:flex;
-
     justify-content:space-between;
-
-    padding:12px 0;
-
+    padding:20px 30px;
     border-bottom:1px solid rgba(0,0,0,.08);
 }
 
@@ -262,152 +224,148 @@ section{
     border-bottom:none;
 }
 
-.preorder{
-
-    text-align:center;
+.track-number{
+    color:var(--accent);
+    font-weight:700;
 }
 
-.preorder-box{
+/* COVER SHOWCASE */
 
-    max-width:700px;
+.showcase{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
 
-    margin:auto;
-
-    background:white;
-
-    padding:50px;
-
-    border-radius:30px;
-
+.showcase img{
+    border-radius:22px;
     box-shadow:var(--shadow);
 }
 
-.big-price{
+.showcase h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
 
-    font-size:4rem;
+.showcase p{
+    line-height:1.9;
+}
 
-    font-weight:700;
+.showcase ul{
+    margin-top:25px;
+    padding-left:20px;
+}
 
-    color:var(--dark);
+.showcase li{
+    margin-bottom:12px;
+}
 
-    margin:15px 0;
+/* CTA */
+
+.final-cta{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+}
+
+.final-cta h2{
+    font-size:clamp(2.5rem,5vw,4rem);
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:5rem;
+    color:var(--accent);
+    font-weight:800;
+    margin:20px 0;
+}
+
+.stock{
+    opacity:.85;
+    margin-bottom:35px;
 }
 
 footer{
-
-    padding:40px 20px;
-
+    background:#072f3a;
+    color:white;
     text-align:center;
-
-    color:rgba(13,76,90,.7);
+    padding:40px;
+    opacity:.85;
 }
 
 @media(max-width:900px){
 
-.hero-content{
+.hero h1{
+    font-size:4rem;
+}
 
+.showcase{
     grid-template-columns:1fr;
-
-    text-align:center;
 }
 
-.cover{
-    max-width:350px;
-    margin:auto;
+.price{
+    font-size:3.5rem;
 }
 
-.features{
-    text-align:left;
-    display:inline-block;
+section{
+    padding:80px 7%;
 }
 
-.preorder-box{
-    padding:30px;
-}
 }
 
 </style>
-
 </head>
 
 <body>
 
 <section class="hero">
 
-<div class="container">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
 
-<div class="hero-content">
+<div class="container hero-content">
 
-<div>
-
-<img
-class="cover"
-src="cover.jpg"
-alt="Je suis avec toi">
-
+<div class="hero-label">
+NOUVEL ALBUM
 </div>
 
-<div>
+<h1>JE SUIS<br>AVEC TOI</h1>
 
-<spanJE SUIS<br>
-AVEC TOI
-</h1>
-
-<p class="subtitle">
-Précommande de l'album physique
+<p>
+Un voyage à travers les sommets, les vallées, les doutes et l'espérance.
+Disponible dès maintenant en précommande.
 </p>
 
-<div class="price">
-19 CHF
-</div>
+<div class="hero-actions">
 
-<p class="limited">
-Edition limitée • 500 exemplaires
-</p>
-
-<ul class="features">
-<li>✓ Digipack premium 3 volets</li>
-<li>✓ Booklet inclus</li>
-<li>✓ Expédition depuis la Suisse</li>
-<li>✓ Paiement sécurisé par carte</li>
-</ul>
-
-<a class="cta" href="TONnder maintenant
+<a href="TON_LIEN_STRIPE"
+class="btn btn-primary"
+target="_blank">
+Précommander • 19 CHF
 </a>
 
-<p class="small-info">
-Livraison dès disponibilité de l'album
-</p>
-
-</div>
-
-</div>
-
+<a href="#roll-indicator">
+↓ défiler
 </div>
 
 </section>
 
-<section>
-
-<div class="container">
+<section id="album" class="fade">
 
 <h2 class="section-title">
-À propos de l'album
+Je suis avec toi
 </h2>
 
-<p class="intro">
-"Je suis avec toi" est un voyage à travers les sommets, les
-vallées, les doutes et l'espérance. À l'image du sentier qui
-traverse la montagne sur la pochette, chaque chanson raconte
-une étape du chemin, une invitation à avancer, à chercher du
-sens et à découvrir une présence qui demeure fidèle.
+<p class="lead">
+À l'image du sentier qui traverse la montagne sur la pochette,
+cet album raconte un chemin. Onze chansons qui explorent la quête de sens,
+le doute, la persévérance, la foi et l'espérance.
 </p>
-
-</div>
 
 </section>
 
-<section class="physical">
+<section class="physical fade">
 
 <div class="container">
 
@@ -415,26 +373,26 @@ sens et à découvrir une présence qui demeure fidèle.
 Édition physique
 </h2>
 
-<div class="cards">
+<div class="features">
 
-<div class="card">
-<h3>Digipack</h3>
-<p>Magnifique digipack 3 volets.</p>
+<div class="feature">
+<h3>Digipack Premium</h3>
+<p>Magnifique digipack 3 volets conçu pour accompagner l'univers visuel de l'album.</p>
 </div>
 
-<div class="card">
-<h3>Booklet</h3>
-<p>Inclus avec l'album physique.</p>
+<div class="feature">
+<h3>Booklet Inclus</h3>
+<p>Livret imprimé inclus dans chaque exemplaire.</p>
 </div>
 
-<div class="card">
-<h3>Collection</h3>
-<p>Pressage limité à 500 exemplaires.</p>
+<div class="feature">
+<h3>Série Limitée</h3>
+<p>Pressage unique limité à 500 exemplaires.</p>
 </div>
 
-<div class="card">
-<h3>Précommande</h3>
-<p>Réservez votre exemplaire dès maintenant.</p>
+<div class="feature">
+<h3>Expédition</h3>
+<p>Préparation et envoi réalisés personnellement depuis la Suisse.</p>
 </div>
 
 </div>
@@ -443,31 +401,58 @@ sens et à découvrir une présence qui demeure fidèle.
 
 </section>
 
-<section>
+<section class="fade">
 
-<div class="container">
+<div class="container showcase">
+
+<div>
+<img src="cover.jpg" alt="Je suis avec toi">
+</div>
+
+<div>
+
+<h2>Un album à conserver</h2>
+
+<p>
+Cette édition physique a été pensée comme un véritable objet.
+Le digipack 3 volets et le booklet permettent de prolonger
+l'expérience visuelle et musicale de l'album.
+</p>
+
+<ul>
+<li>Digipack 3 volets</li>
+<li>Booklet inclus</li>
+<li>Édition limitée</li>
+<li>Précommande exclusive</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="fade">
 
 <h2 class="section-title">
 Tracklist
 </h2>
 
-<div class="tracklist-container">
+<div class="track-wrapper">
 
 <div class="tracklist">
 
-<div class="track"><span>01</span><span>Univers</span></div>
-<div class="track"><span>02</span><span>Vanité</span></div>
-<div class="track"><span>03</span><span>Je n'y arrive pas</span></div>
-<div class="track"><span>04</span><span>Va</span></div>
-<div class="track"><span>05</span><span>Certainement</span></div>
-<div class="track"><span>06</span><span>Caché en toi</span></div>
-<div class="track"><span>07</span><span>Sans compromis</span></div>
-<div class="track"><span>08</span><span>Tu m'entendras</span></div>
-<div class="track"><span>09</span><span>Je cours</span></div>
-<div class="track"><span>10</span><span>Moi et ma maison</span></div>
-<div class="track"><span>11</span><span>Face à face</span></div>
-
-</div>
+<div class="track"><span class="track-number">01</span><span>Univers</span></div>
+<div class="track"><span class="track-number">02</span><span>Vanité</span></div>
+<div class="track"><span class="track-number">03</span><span>Je n'y arrive pas</span></div>
+<div class="track"><span class="track-number">04</span><span>Va</span></div>
+<div class="track"><span class="track-number">05</span><span>Certainement</span></div>
+<div class="track"><span class="track-number">06</span><span>Caché en toi</span></div>
+<div class="track"><span class="track-number">07</span><span>Sans compromis</span></div>
+<div class="track"><span class="track-number">08</span><span>Tu m'entendras</span></div>
+<div class="track"><span class="track-number">09</span><span>Je cours</span></div>
+<div class="track"><span class="track-number">10</span><span>Moi et ma maison</span></div>
+<div class="track"><span class="track-number">11</span><span>Face à face</span></div>
 
 </div>
 
@@ -475,39 +460,48 @@ Tracklist
 
 </section>
 
-<section class="preorder">
+<section class="final-cta">
 
-<div class="container">
+<h2>Précommande ouverte</h2>
 
-<div class="preorder-box">
-
-<h2>
-Précommande ouverte
-</h2>
-
-<div class="big-price">
+<div class="price">
 19 CHF
 </div>
 
-<p style="margin-bottom:30px;">
-Album physique • Digipack 3 volets • Booklet inclus
+<p class="stock">
+Édition physique limitée à 500 exemplaires
 </p>
 
-<a
-class="cta"
-href="TON_LIEN_STRIPE"
+<a href="TON_LIEN_STRIPE"
+class="btn btn-primary"
 target="_blank">
-Je réserve mon exemplaire
+Réserver mon exemplaire
 </a>
-
-</div>
-
-</div>
 
 </section>
 
-er>
+<footer>
+©ipt>
+
+const elements = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('visible');
+
+}
+
+});
+
+},{threshold:0.15});
+
+elements.forEach(el => observer.observe(el));
+
+</script>
 
 </body>
-
 </html>
