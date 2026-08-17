@@ -1,105 +1,513 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Précommande Album</title>
+<title>Je suis avec toi | Précommande</title>
+
+<link relonts.googleapis.com
+<link rel="preconnect" href<link href="https://fonts.googleapis.com/css2?family300;400;500;600;700&display=swap
 
 <style>
-body{
-    font-family:Arial,sans-serif;
+
+:root{
+    --bg:#d6e1de;
+    --dark:#0d4c5a;
+    --accent:#efb29f;
+    --white:#ffffff;
+    --shadow:0 20px 60px rgba(0,0,0,.12);
+}
+
+*{
     margin:0;
-    background:#111;
-    color:white;
-    text-align:center;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
 }
 
 .container{
-    max-width:900px;
+    width:min(1200px,90%);
     margin:auto;
-    padding:40px 20px;
+}
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 0;
+}
+
+.hero-content{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
 }
 
 .cover{
-    width:300px;
-    border-radius:12px;
+
+    width:100%;
+    max-width:520px;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+    transition:transform .5s ease;
+}
+
+.cover:hover{
+    transform:translateY(-8px);
+}
+
+.album-label{
+
+    display:inline-block;
+
+    background:white;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.9rem;
+
+    margin-bottom:20px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 
 h1{
-    font-size:3rem;
+
+    font-size:clamp(3rem,7vw,6rem);
+
+    line-height:.95;
+
+    margin-bottom:25px;
+}
+
+.subtitle{
+
+    font-size:1.25rem;
+
+    margin-bottom:20px;
 }
 
 .price{
-    font-size:2rem;
-    color:#ffd700;
+
+    font-size:2.7rem;
+
+    font-weight:700;
+
+    margin-bottom:6px;
 }
 
-.button{
+.limited{
+
+    color:#456670;
+
+    margin-bottom:30px;
+}
+
+.features{
+
+    list-style:none;
+
+    margin-bottom:35px;
+}
+
+.features li{
+    margin-bottom:10px;
+}
+
+.cta{
+
     display:inline-block;
-    margin-top:20px;
-    background:#ffd700;
-    color:black;
+
+    background:var(--dark);
+
+    color:white;
+
     text-decoration:none;
-    padding:15px 40px;
-    border-radius:40px;
-    font-weight:bold;
+
+    padding:18px 42px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    transition:.3s;
 }
 
-.button:hover{
-    background:#ffea72;
+.cta:hover{
+
+    background:var(--accent);
+
+    color:var(--dark);
+}
+
+.small-info{
+
+    margin-top:15px;
+
+    font-size:.9rem;
+
+    opacity:.8;
 }
 
 section{
+    padding:110px 0;
+}
+
+.section-title{
+
+    font-size:clamp(2rem,5vw,3rem);
+
+    margin-bottom:25px;
+
+    text-align:center;
+}
+
+.intro{
+
+    max-width:800px;
+
+    margin:auto;
+
+    text-align:center;
+
+    font-size:1.1rem;
+}
+
+.physical{
+
+    background:rgba(255,255,255,.45);
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
     margin-top:50px;
 }
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.05);
+
+    text-align:center;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.tracklist-container{
+
+    max-width:700px;
+
+    margin:auto;
+}
+
+.tracklist{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:var(--shadow);
+}
+
+.track{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.track:last-child{
+    border-bottom:none;
+}
+
+.preorder{
+
+    text-align:center;
+}
+
+.preorder-box{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
+}
+
+.big-price{
+
+    font-size:4rem;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+    margin:15px 0;
+}
+
+footer{
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    color:rgba(13,76,90,.7);
+}
+
+@media(max-width:900px){
+
+.hero-content{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+}
+
+.cover{
+    max-width:350px;
+    margin:auto;
+}
+
+.features{
+    text-align:left;
+    display:inline-block;
+}
+
+.preorder-box{
+    padding:30px;
+}
+}
+
 </style>
+
 </head>
 
 <body>
 
+<section class="hero">
+
 <div class="container">
 
-    cover.jpg
+<div class="hero-content">
 
-    <h1>Je suis avec toi</h1>
+<div>
 
-    <p>
-        Nouvel album disponible en précommande.
-    </p>
-
-    <p class="price">
-        19 CHF
-    </p>
-
-    <p>
-        Série limitée à 500 exemplaires.
-    </p>
-
-    https://buy.stripe.com/TON_LIEN_ICI
-       Précommander maintenant
-    </a>
-
-    <section>
-        <h2>À propos</h2>
-
-        <p>
-            Présentation de l'album.
-        </p>
-    </section>
-
-    <section>
-        <h2>Tracklist</h2>
-
-        <ol style="display:inline-block;text-align:left;">
-            <li>Titre 1</li>
-            <li>Titre 2</li>
-            <li>Titre 3</li>
-            <li>Titre 4</li>
-        </ol>
-    </section>
+<img
+class="cover"
+src="cover.jpg"
+alt="Je suis avec toi">
 
 </div>
 
+<div>
+
+<spanJE SUIS<br>
+AVEC TOI
+</h1>
+
+<p class="subtitle">
+Précommande de l'album physique
+</p>
+
+<div class="price">
+19 CHF
+</div>
+
+<p class="limited">
+Edition limitée • 500 exemplaires
+</p>
+
+<ul class="features">
+<li>✓ Digipack premium 3 volets</li>
+<li>✓ Booklet inclus</li>
+<li>✓ Expédition depuis la Suisse</li>
+<li>✓ Paiement sécurisé par carte</li>
+</ul>
+
+<a class="cta" href="TONnder maintenant
+</a>
+
+<p class="small-info">
+Livraison dès disponibilité de l'album
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+À propos de l'album
+</h2>
+
+<p class="intro">
+"Je suis avec toi" est un voyage à travers les sommets, les
+vallées, les doutes et l'espérance. À l'image du sentier qui
+traverse la montagne sur la pochette, chaque chanson raconte
+une étape du chemin, une invitation à avancer, à chercher du
+sens et à découvrir une présence qui demeure fidèle.
+</p>
+
+</div>
+
+</section>
+
+<section class="physical">
+
+<div class="container">
+
+<h2 class="section-title">
+Édition physique
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Digipack</h3>
+<p>Magnifique digipack 3 volets.</p>
+</div>
+
+<div class="card">
+<h3>Booklet</h3>
+<p>Inclus avec l'album physique.</p>
+</div>
+
+<div class="card">
+<h3>Collection</h3>
+<p>Pressage limité à 500 exemplaires.</p>
+</div>
+
+<div class="card">
+<h3>Précommande</h3>
+<p>Réservez votre exemplaire dès maintenant.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Tracklist
+</h2>
+
+<div class="tracklist-container">
+
+<div class="tracklist">
+
+<div class="track"><span>01</span><span>Univers</span></div>
+<div class="track"><span>02</span><span>Vanité</span></div>
+<div class="track"><span>03</span><span>Je n'y arrive pas</span></div>
+<div class="track"><span>04</span><span>Va</span></div>
+<div class="track"><span>05</span><span>Certainement</span></div>
+<div class="track"><span>06</span><span>Caché en toi</span></div>
+<div class="track"><span>07</span><span>Sans compromis</span></div>
+<div class="track"><span>08</span><span>Tu m'entendras</span></div>
+<div class="track"><span>09</span><span>Je cours</span></div>
+<div class="track"><span>10</span><span>Moi et ma maison</span></div>
+<div class="track"><span>11</span><span>Face à face</span></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="preorder">
+
+<div class="container">
+
+<div class="preorder-box">
+
+<h2>
+Précommande ouverte
+</h2>
+
+<div class="big-price">
+19 CHF
+</div>
+
+<p style="margin-bottom:30px;">
+Album physique • Digipack 3 volets • Booklet inclus
+</p>
+
+<a
+class="cta"
+href="TON_LIEN_STRIPE"
+target="_blank">
+Je réserve mon exemplaire
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+er>
+
 </body>
+
 </html>
